@@ -57,7 +57,7 @@ class Clock extends React.Component {
         <div className="clock-container">
           <div className="time-container">
             <h2>Time: </h2>
-            <h2>{this.state.time.getHours()}:{this.displayMinutes()}:{this.displaySeconds()}</h2>
+            <h2>{this.state.time.getHours()}:{this.displayMinutes()}:{this.displaySeconds()} Pacific Time</h2>
           </div>
           
           <div className="date-container">
