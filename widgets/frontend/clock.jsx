@@ -32,12 +32,40 @@ class Clock extends React.Component {
     return monthNames[num];
   }
   
+  displayMinutes(){
+    let minutes = this.state.time.getMinutes();
+    if (minutes < 10) {
+      return "0" + minutes;
+    }  else {
+      return minutes;
+    }
+  }
+  
+  displaySeconds(){
+    let seconds = this.state.time.getSeconds();
+    if (seconds < 10) {
+      return "0" + seconds;
+    }  else {
+      return seconds;
+    }
+  }
+  
   render() {
     return (
       <div>
         <h1>Clock</h1>
-        <h1>{this.state.time.getHours()}:{this.state.time.getMinutes()}:{this.state.time.getSeconds()}</h1>
-        <h1>{this.displayDayOfWeek()}, {this.displayMonth()} {this.state.time.getDate()}, {this.state.time.getFullYear()}</h1>
+        <div className="clock-container">
+          <div className="time-container">
+            <h2>Time: </h2>
+            <h2>{this.state.time.getHours()}:{this.displayMinutes()}:{this.displaySeconds()}</h2>
+          </div>
+          
+          <div className="date-container">
+            <h2>Date: </h2>
+            <h2>{this.displayDayOfWeek()}, {this.displayMonth()} {this.state.time.getDate()}, {this.state.time.getFullYear()}</h2>
+          </div>
+          
+        </div>
       </div>
     ) 
   }
